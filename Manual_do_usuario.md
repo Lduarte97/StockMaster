@@ -22,7 +22,7 @@ Para o cadastro no sistema, existem dois tipos de usuários, o usuário tipo adm
 de cadastro de usuário e perfil de usuário estão disponíveis apenas para o usuário adm. Na imagem abaixo estamos usando como exemplo um usuário adm.
 ![imagem](telahome.png)
 
-Na tela princical estão listados no menu superior todas as funções disponíveis, sendo elas : Cadastro de produto, cadastro de usuário, perfil do usuário, entrada e saída de produtos, relatório, e sair do sistema. Cada botão ao ser clicado leva à sua respecutiva funcionalidade. Na parte inferior contém uma tabela onde estão listados todos os produtos cadastrados no sistema e o estoque mínimo e máximo de cada produto.
+Na tela princical estão listados no menu superior todas as funções disponíveis, sendo elas : Cadastro de produto, cadastro de usuário, perfil do usuário, entrada e saída de produtos, relatório, e sair do sistema. Cada botão ao ser clicado leva à sua respectiva funcionalidade. Na parte inferior contém uma tabela onde estão listados todos os produtos cadastrados no sistema e o estoque mínimo e máximo de cada produto.
 
 ## Tela Cadastro de produtos
 
