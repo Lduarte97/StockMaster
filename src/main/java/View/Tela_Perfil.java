@@ -25,22 +25,24 @@ public class Tela_Perfil extends javax.swing.JFrame {
     public Tela_Perfil(Usuarios u) {
         initComponents();
         user =u;
+        // Chamada do menu superior
          Menu_adm_outras_telas menu = new Menu_adm_outras_telas();
          setJMenuBar(menu.getMenuBarInstance());
          setJMenuBar(MenuSuperior.criarMenu(this, user));
+         
         Listagem();
         limparCampos();
     }
+    // método para limpar os campos
     private void limparCampos() {
             campoNome.setText("");         // Substitua pelos IDs dos seus campos
             campoNomeDeUsuario.setText("");
             campoEmail.setText("");
             campoSenha.setText("");
             campoNome.requestFocus();//quando limpa , o curso fica dentro do campo nome 
-        }
-
-
-
+        }// fim do método limparCampos()
+    
+    //método para listar os os usuários cadastrados em uma tabela
     public void Listagem() {
     // Chamando o controller de usuários
     UsuarioController controller = new UsuarioController();
@@ -68,11 +70,11 @@ public class Tela_Perfil extends javax.swing.JFrame {
             };
             // Adicionando a linha ao modelo da tabela
             modeloTabela.addRow(linha);
-        }
+        }// fim do for
     } else {
         JOptionPane.showMessageDialog(this, "Nenhum nome encontrado.");
-    }
-}//
+    }// fim do if/else
+}//fim do Listagem()
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -284,11 +286,11 @@ public class Tela_Perfil extends javax.swing.JFrame {
             limparCampos();
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar usuário!");
-        }
+        }// fim do if else
     } catch (Exception e) {
         JOptionPane.showMessageDialog(null, "Erro ao atualizar usuário: " + e.getMessage());
         e.printStackTrace();
-    }
+    }// fim do try/catch
     }//GEN-LAST:event_botaoAtualizarActionPerformed
 
     private void ExcluirBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirBotaoActionPerformed
@@ -307,11 +309,11 @@ public class Tela_Perfil extends javax.swing.JFrame {
     }//GEN-LAST:event_ExcluirBotaoActionPerformed
 
     private void cadastrar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_usuarioActionPerformed
-      // Chamando o controller de produtos
+      // Chamando o controller de Usuários
     UsuarioController controller = new UsuarioController();
     
     try {
-        // Objeto do tipo Produtos
+        // Objeto do tipo usuário
         Usuarios usuario = new Usuarios();
         usuario.setIdUsuario(this.idUsuario);  // Usando o ID já atribuído
         usuario.setNome(campoNome.getText());
@@ -328,51 +330,14 @@ public class Tela_Perfil extends javax.swing.JFrame {
             limparCampos();
         } else {
             JOptionPane.showMessageDialog(null, "Não cadastrado!");
-        }
+        }// fim do if/else
 
     } catch (Exception e) {
         System.err.print("Erro ao cadastrar: " + e);
-    }
+    }// fim do try/catch
+    
     }//GEN-LAST:event_cadastrar_usuarioActionPerformed
 
-    /**private void Tabela_De_Listagem(java.awt.event.MouseEvent evt) {                                    
-    // Obtém a linha selecionada
-    int linhaSelecionada = TabelaUsuario.getSelectedRow();
-    
-    // Corrige a condição para permitir a seleção da primeira linha (índice 0)
-    if (linhaSelecionada >= 0) {  
-        DefaultTableModel modeloTabela = (DefaultTableModel) TabelaUsuario.getModel();
-
-        // Verifica se a célula do ID não é nula antes de converter
-        Object idObj = modeloTabela.getValueAt(linhaSelecionada, 0);
-        if (idObj != null) {
-            idUsuario = Integer.parseInt(idObj.toString());
-        }
-
-        // Preenche os campos de texto
-        campoNome.setText(modeloTabela.getValueAt(linhaSelecionada, 1).toString());
-        campoEmail.setText(modeloTabela.getValueAt(linhaSelecionada, 2).toString());
-
-        // Preenche o campoNomeDeUsuario (JComboBox ou JTextField)
-        Object nomeUsuarioObj = modeloTabela.getValueAt(linhaSelecionada, 3);
-        if (campoNomeDeUsuario instanceof JComboBox) {
-            campoNomeDeUsuario.setSelectedItem(nomeUsuarioObj);
-        } else {
-            campoNomeDeUsuario.setText(nomeUsuarioObj.toString());
-        }
-
-        // Preenche o campoSenha (JComboBox ou JTextField)
-        Object senhaObj = modeloTabela.getValueAt(linhaSelecionada, 4);
-        if (campoSenha instanceof JComboBox) {
-            campoSenha.setSelectedItem(senhaObj);
-        } else {
-            campoSenha.setText(senhaObj.toString());
-        }
-    }
-}
-
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

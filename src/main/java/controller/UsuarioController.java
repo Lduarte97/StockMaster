@@ -30,21 +30,20 @@ public class UsuarioController {
 
             if (rs.next()) {
                 return rs.getInt(1) > 0; // Retorna true se o nome de usuário já existir
-            }
+            }// fim do if
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }// fim do try/catch
 
         return false; // Retorna false caso o nome de usuário não exista
-    }
+    }// fim do verificarNomeUsuario
 
-    // Método para cadastrar um novo usuário
    // Método para cadastrar um novo usuário
 public Usuarios cadastrarUsuario(Usuarios usuario) {
     if (usuario == null) {
         System.out.println("Erro: Usuário recebido é nulo.");
         return null;
-    }
+    }// fim do if
 
     int isAdminValue = usuario.getIsAdmin();
     String codigoUsuarioGerado = null;
@@ -54,8 +53,8 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
     } catch (SQLException e) {
         System.out.println("Erro ao gerar código de usuário: " + e.getMessage());
        //return null;
-    }
-
+    }// fim do try/catch
+    // insere na coluna CodigodoUsuario um código que foi gerado automaticamente
     usuario.setCodigoUsuario(codigoUsuarioGerado);
     String sql = "INSERT INTO Usuarios (Nome, Email, NomeDeUsuario, Senha, IsAdmin, CodigoUsuario) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -77,18 +76,21 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
                     usuario.setIdUsuario(generatedKeys.getInt(1));
                     System.out.println("Usuário cadastrado com sucesso: " + usuario.getNomeDeUsuario());
                     return usuario;
-                }
-            }
-        }
+                    
+                }// fim do 2° if
+                
+            }// fim do try
+            
+        }// fim do 1º if
     } catch (SQLException e) {
         System.out.println("Erro ao cadastrar usuário: " + e.getMessage());
-    }
+    }// fim do try/catch
 
     System.out.println("Erro: Usuário não foi cadastrado corretamente.");
     return null;
-}
+}// fim do cadastrarUsuario
 
-
+    // Método para gerar um código automaticamente para o usuário no momento do cadastro
     private String gerarCodigoUsuario() throws SQLException {
     String ultimoCodigo = null;
     String sql = "SELECT TOP 1 CodigoUsuario FROM Usuarios ORDER BY IdUsuario DESC";
@@ -99,10 +101,10 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
         
         if (rs.next()) {
             ultimoCodigo = rs.getString("CodigoUsuario");
-        }
+        }// fim do if
     } catch (Exception e) {
         System.out.println("Erro ao gerar código: " + e);
-    }
+    }// fim do try/catch
 
     // Se for o primeiro usuário, começa com "1000"
     if (ultimoCodigo == null) {
@@ -110,15 +112,16 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
     } else {
         int novoCodigo = Integer.parseInt(ultimoCodigo) + 1;
         return String.format("%04d", novoCodigo); // Garante 4 dígitos
-    }
-}
+    }// fim do if/else
+    
+}// fim do gerarCodigoUsuario()
 
     // Método para alterar dados de um usuário
     public void alterarUsuario(Usuarios usuario) {
         if (usuario.getIdUsuario() == 0) {
         System.out.println("Erro: O ID do usuário não foi definido corretamente.");
         return;
-    }
+    }// fim do if
 
     String sql = "UPDATE Usuarios SET Nome = ?, Email = ?, NomeDeUsuario = ?, Senha = ?, IsAdmin = ? WHERE IdUsuario = ?";
 
@@ -138,12 +141,12 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
             System.out.println("Usuário atualizado com sucesso!");
         } else {
             System.out.println("Nenhum usuário encontrado com o ID especificado.");
-        }
+        }// fim do if else
     } catch (SQLException e) {
         System.out.println("Erro ao atualizar usuário: " + e.getMessage());
         e.printStackTrace();
-    }
-    }
+    }// fim do try/catch
+ }// fim do alterarUsuario
 
     // Método para excluir um usuário
     public boolean excluirUsuario(int idUsuario) throws SQLException {
@@ -158,9 +161,10 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
     } catch (SQLException e) {
         e.printStackTrace();
         return false;
-    }
-}
- 
+    }// fim do try/catch
+}// fim do excluirUsuario
+    
+    // método para listar os usuários cadastrados
      public List<Usuarios> listarUsuarios() {
         String query = "SELECT * FROM Usuarios"; // Corrigido para a tabela de Usuarios
         List<Usuarios> lista = new ArrayList<>();
@@ -180,13 +184,15 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
                 usuario.setIsAdmin(resultSet.getInt("IsAdmin"));
 
                 lista.add(usuario);
-            }
+            }// fim do while
             return lista;
         } catch (SQLException e) {
             System.err.println("Erro ao listar usuários: " + e.getMessage());
             return null;
-        }
-    }
+        }// fim do try/catch
+    }// fim do listarUsuarios()
+     
+            // método para editar os dados dos usuários já cadastrados
             public boolean editarUsuarios(Usuarios usuario){
            String query = "UPDATE Usuarios SET Nome=?, Email=?, NomeDeUsuario=?, Senha=? WHERE IdUsuario=?";
            try (Connection connection = ConexaoBancoDeDados.getConnection();
@@ -205,8 +211,10 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
            } catch (SQLException e) {
                System.err.println("Erro ao atualizar o usuário: " + e.getMessage());
                return false;
-         }
-     }
+         }// fim do try/catch
+     }// fim do editarUsuarios
+            
+        // método para listar os usuários cadastrados 
         public List<Usuarios> listarUsuarioNome(String nome){
     String query = "SELECT * FROM Usuarios WHERE Nome LIKE ?";
     List<Usuarios> lista = new ArrayList<>();
@@ -229,13 +237,13 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
                 usuario.setIsAdmin(resultSet.getInt("IsAdmin"));
 
                 lista.add(usuario);
-            }
+            }// fim do while
 
             return lista;
         } catch (SQLException e) {
             System.err.println("Não foi possível encontrar usuários: " + e.getMessage());
             return null;
-        }
-    }
+        }// fim do try/catch
+    }// fim do listarUsuarioNome
         
-}
+}// fim da classe public class UsuarioController

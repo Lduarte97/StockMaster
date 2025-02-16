@@ -22,6 +22,7 @@ public class ProdutosController {
 
     
     private Iterable<Produtos> listaProdutos;
+    // método para cadastrar os produtos 
    public boolean cadastrandoProdutos(Produtos produto) {
         String query = "INSERT INTO Produtos (" +
                        "TipoProduto, MarcaProduto, Codigo, CodigoFornecedor, " +
@@ -56,8 +57,10 @@ public class ProdutosController {
             // Imprimindo erro ao inserir
             System.err.println("Erro ao inserir os dados dos produtos: " + e);
             return false;
-        }
-    }
+        }// fim do try catch
+    }// fim do método cadastrandoProdutos
+   
+   // métdodo buscar os produtos cadastrados dentro do banco de dados
     public Produtos buscarProdutosPorNomeOuCodigo(String termo) {
     String query = "SELECT * FROM Produtos WHERE Codigo = ? OR TipoProduto = ?";
     Produtos produto = null;
@@ -89,41 +92,16 @@ public class ProdutosController {
                 produto.setEstoqueAtual(resultSet.getInt("estoqueAtual"));
                 produto.setFotoProduto(resultSet.getString("fotoProduto"));
                 produto.setCategoria(resultSet.getString("categoria"));
-            }
-        }
+            }// fim do if
+        }// fim do try
     } catch (SQLException e) {
         System.err.println("Erro ao buscar produto: " + e.getMessage());
-    }
+    }// fim do try/catch
 
     return produto; // Retorna o produto encontrado ou null se não encontrar
-}
-
-    
-   /** private String gerarCodigoUsuario() throws SQLException {
-        String ultimoCodigo = null;
-        String sql = "SELECT TOP 1 Codigo FROM Produtos ORDER BY ProdutoID DESC";
-        try (Connection conexao = ConexaoBancoDeDados.getConnection();
-             PreparedStatement stmt = conexao.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
-            
-            if (rs.next()) {
-                ultimoCodigo = rs.getString("Codigo");
-            }
-        } catch (SQLException e) {
-            System.out.println("Erro ao gerar código: " + e);
-        }
+}// fim do buscarProdutosPorNomeOuCodigo
         
-        
-        
-        // Se for o primeiro produto, começa com "0001"
-        if (ultimoCodigo == null) {
-            return "0001";
-        } else {
-            int novoCodigo = Integer.parseInt(ultimoCodigo) + 1;
-            return String.format("%04d", novoCodigo); // Garante 4 dígitos
-        }
-    }**/
-        
+    // lista para listar os produtos cadastrados
         public List<Produtos> listarProdutos() {
     // Consulta SQL para selecionar todos os campos da tabela Produtos
     String query = "SELECT * FROM Produtos;";
@@ -155,14 +133,16 @@ public class ProdutosController {
 
             // Adicionando o produto à lista
             lista.add(produto);
-        }
+        }// fim do while
 
     } catch (SQLException e) {
         System.err.println("Erro ao listar produtos: " + e.getMessage());
-    }
+    }// fim do try/catch
 
-    return lista;
-}
+    return lista;// Retorna uma lista
+}// fim do listarProdutos()
+        
+     // método para listar os produtos por nome
      public List<Produtos> listarProdutosNome(String termo) {
     // Consulta ajustada para procurar pelo tipo, marca ou código do produto
     String query = "SELECT * FROM Produtos WHERE TipoProduto LIKE ? OR MarcaProduto LIKE ? OR Codigo LIKE ?;";
@@ -202,12 +182,14 @@ public class ProdutosController {
 
             // Adicionando o produto à lista
             lista.add(produto);
-        }
+        }// fim do while
 
     } catch (SQLException e) {
         System.err.println("Erro ao listar produtos: " + e.getMessage());
-    }
+    }// fim do try/catch
 
-    return lista;
-}
-}     
+    return lista;// retorna uma lista
+}// fim do listarProdutosNome
+     
+     
+} // fim da classe ProdutosController   

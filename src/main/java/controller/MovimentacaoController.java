@@ -22,7 +22,7 @@ public class MovimentacaoController {
             conn = ConexaoBancoDeDados.getConnection();
             if (conn == null) {
                 throw new SQLException("Não foi possível estabelecer a conexão com o banco de dados.");
-            }
+            }// fim do if
 
             // Insere a movimentação na tabela MovimentacoesEstoque
             String sql = "INSERT INTO MovimentacoesEstoque (IdProduto, TipoMovimentacao, CodigoSolicitante, CodigoProduto, Quantidade, IdUsuario) VALUES (?, ?, ?, ?, ?, ?)";
@@ -42,14 +42,15 @@ public class MovimentacaoController {
                 return true;
             } else {
                 return false;
-            }
+            }// fim do if else
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-        } finally {
+        }// fim do try/catch
+        finally {
             ConexaoBancoDeDados.fecharConexao(conn, stmt);
-        }
-    }
+        }// fim do finaly e fechando a conexão com o banco de dados
+    }// fim do registrarMovimentacao
 
     // Método para atualizar o estoque do produto na tabela Produtos
     private void atualizarEstoque(MovimentacaoEstoque movimentacao, Connection conn) {
@@ -61,7 +62,7 @@ public class MovimentacaoController {
                 sql = "UPDATE Produtos SET EstoqueAtual = EstoqueAtual + ? WHERE ProdutoID = ?";
             } else { // Saída
                 sql = "UPDATE Produtos SET EstoqueAtual = EstoqueAtual - ? WHERE ProdutoID = ?";
-            }
+            }// fim do if else
 
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, movimentacao.getQuantidade());
@@ -69,10 +70,11 @@ public class MovimentacaoController {
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
+        } // fim do try/catch
+        finally {
             ConexaoBancoDeDados.fecharConexao(null, stmt);
-        }
-    }
+        }// fim do finaly e fechando a conexão com o banco de dados
+    }// fim do atualizarEstoque
 
     // Método para buscar o estoque atual do produto
     public int buscarEstoqueAtual(int idProduto) {
@@ -84,7 +86,7 @@ public class MovimentacaoController {
             conn = ConexaoBancoDeDados.getConnection();
             if (conn == null) {
                 throw new SQLException("Não foi possível estabelecer a conexão com o banco de dados.");
-            }
+            }// fim do if
 
             String sql = "SELECT EstoqueAtual FROM Produtos WHERE ProdutoID = ?";
             stmt = conn.prepareStatement(sql);
@@ -95,13 +97,16 @@ public class MovimentacaoController {
                 return rs.getInt("EstoqueAtual");
             } else {
                 return -1; // Retorna -1 caso o produto não seja encontrado
-            }
+            }// fim do if else
         } catch (SQLException e) {
             e.printStackTrace();
             return -1;
-        } finally {
+        } // fim do try catch
+        finally {
             ConexaoBancoDeDados.fecharConexao(conn, stmt, rs);
-        }
-    }
-}
+        }// fim do finaly e fechando a conexão com o banco de dados
+        
+    }// fim do buscarEstoqueAtual
+    
+}// fim da classe MovimentacaoController
 

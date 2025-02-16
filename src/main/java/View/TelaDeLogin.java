@@ -26,7 +26,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null); // Centraliza a tela
         iconeTela();
     }
-
+    // método que muda o ícone da tela na hora da execução
     private void iconeTela(){
         try {
             Image iconeTitulo = ImageIO.read(getClass().getResource("/imagens/logoGeral.png"));
@@ -35,7 +35,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
         }catch(IOException ex){
             System.out.println("Erro ao importar icone: " + ex.getMessage());
         }
-    }
+    }// fim do iconeTela()
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -193,6 +193,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
 
     private void BotaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarActionPerformed
         // TODO add your handling code here:
+        // Chama o login da classe LoginController
         LoginController controller = new LoginController();
        String user =campoLogin.getText();
        String password = new String(campoSenha.getPassword()); // Corrige o uso de getPassword()

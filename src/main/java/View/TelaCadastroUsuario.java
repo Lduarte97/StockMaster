@@ -36,10 +36,12 @@ private int userType;
         botaoOcultarSenha.setIcon(new ImageIcon("/imagens/ocultar.png"));
         selecionarApenasumBotao();
         iconeTela();
+        
+     // Chamada do menu na parte superior da página
      Menu_adm_outras_telas menu = new Menu_adm_outras_telas();
          setJMenuBar(MenuSuperior.criarMenu(this, user));
     }
-    
+    // método que permite ao usuário marcar apenas uma opção de usuário ou admin ou comum
     public void selecionarApenasumBotao(){
         
         group = new ButtonGroup();
@@ -65,7 +67,7 @@ private int userType;
             }
         });
         
-    }
+    }//fim do selecionarApenasumBotao()
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -198,7 +200,8 @@ private int userType;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private void iconeTela(){  
+    // método que muda o ícone da tela na hora da execução
+    private void iconeTela(){  
         try {
 
         Image iconeTitulo = ImageIO.read(getClass().getResource("/imagens/logoGeral.png"));
@@ -209,12 +212,12 @@ private void iconeTela(){
           System.out.println("Erro ao importar icone: " + ex.getMessage());
         }        
    
-    }
+    }// fim do iconeTela()
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         // TODO add your handling code here:
          try{
         UsuarioController controller = new UsuarioController();
-        
+        // Recebe os dados informados e manda para o insert através do método CadastrarUsuário da Classe UsuarioController
         Usuarios usuario = new Usuarios(
                 campoNome.getText(), 
                 campoEmail.getText(),
@@ -233,6 +236,7 @@ private void iconeTela(){
 
     private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
         // TODO add your handling code here:
+        // limpa os campos 
         botaoLimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoNome.setText("");

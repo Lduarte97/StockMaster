@@ -46,12 +46,12 @@ public class LoginController {
                    
                     // Retorna o objeto usuário com os dados preenchidos
                     return new Usuarios(idUsuario, nome, emailUsuario, nomeUsuario, senhaUsuario, isAdmin, codigoUsuario);
-                }
-            }
+                }// fim do if
+            }// fim do 2° try
         } catch (SQLException e) { 
             System.err.println("Erro ao autenticar o usuário: " + e.getMessage());
-        }
+        }// fim do try/catch
         return null; // Retorna null caso a autenticação falhe
-    }
+    }// fim do método authenticate
     
-}
+}// fim da classe LoginController

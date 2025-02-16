@@ -33,7 +33,8 @@ private int userType;
       ProdutosController produtosController = new ProdutosController();
     public TelaEntradaSaida(Usuarios u) {
         initComponents();
-        user = u;    
+        user = u; 
+        // Chamada do menu superior
          setJMenuBar(MenuSuperior.criarMenu(this, user));
         selecionarApenasumBotao();
         iconeTela();
@@ -46,15 +47,10 @@ private int userType;
                 campoPesquisaActionPerformed(evt);  // Chama o método quando o evento for disparado
             }
         });
-        
         // Simulando o evento no construtor
         
         campoPesquisaActionPerformed(new ActionEvent(campoPesquisa, ActionEvent.ACTION_PERFORMED, null)); // Chama o método diretamente
     }
-
-   
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -224,7 +220,8 @@ private int userType;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-        private void iconeTela(){  
+    // Método para chamar o ícone da logo na t5ela  
+    private void iconeTela(){  
                 try {
 
                 Image iconeTitulo = ImageIO.read(getClass().getResource("/imagens/logoGeral.png"));
@@ -235,9 +232,9 @@ private int userType;
                   System.out.println("Erro ao importar icone: " + ex.getMessage());
                 }        
 
-            }
+            }// fim do iconeTela()
     
-    
+        // método que permite ao usuáriomarcar apenas uma opção, ou entrada ou saída
         public void selecionarApenasumBotao(){
         
         group = new ButtonGroup();
@@ -263,7 +260,9 @@ private int userType;
             }
         });
         
-    }
+    }// fim do selecionarApenasumBotao()
+        
+        // método para listar os produtos na tabela
         public void listarprodutostabela(){
           // Limpar a tabela antes de adicionar novos dados
     DefaultTableModel modeloTabela = (DefaultTableModel) tabela_produto.getModel();
@@ -283,7 +282,7 @@ private int userType;
             produto.getCategoria()
         });
     }
-    }
+    }//fim do listarprodutostabela()
     private void campoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoProdutoActionPerformed
@@ -295,7 +294,8 @@ private int userType;
     private void campoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoCodigoActionPerformed
-private int movimentacao ;
+    // variável para receber a opção definida pelo radiobutton
+    private int movimentacao ;
     private void radioButtonEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonEntradaActionPerformed
         // TODO add your handling code here:
         movimentacao = 1;
@@ -369,7 +369,7 @@ private int idproduto;
 } catch (Exception e) {
     // Mensagem de erro caso ocorra uma exceção
     JOptionPane.showMessageDialog(null, "Erro ao realizar a movimentação: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-}
+}// fim do try catch
 
     }//GEN-LAST:event_botaoMovimentarEstoqueActionPerformed
 
@@ -391,7 +391,7 @@ private int idproduto;
         campoCodigo.setText(codigoProduto);
         campoUnidademedida.setText(unidadeVenda); // Você pode ajustar de acordo com a necessidade do campo
         campoCategoria.setText(categoria);   // Também pode ser ajustado conforme necessário
-    }
+    }// fim do if
     }//GEN-LAST:event_tabela_produtoTabela_Produto
 
     /**

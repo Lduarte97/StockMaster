@@ -35,8 +35,8 @@ public class RequisicoesController {
             e.printStackTrace();
             System.out.println("Erro ao criar requisição: " + e.getMessage());
             return false;
-        }
-    }
+        }// fim do try/catch
+    }// fim do criarRequisicao
 
     // Método para atualizar o status da requisição
     public boolean atualizarStatusRequisicao(int idRequisicao, String novoStatus) {
@@ -51,8 +51,8 @@ public class RequisicoesController {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-        }
-    }
+        }// fim do try/catch
+    }//fim do atualizarStatusRequisicao
 
     // Método para listar todas as requisições
     public List<Requisicoes> listarRequisicoes() {
@@ -71,13 +71,13 @@ public class RequisicoesController {
                 req.setDataRequisicao(rs.getString("DataRequisicao"));
 
                 requisicoes.add(req);
-            }
+            }// fim do while
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }// fim do try/catch
 
         return requisicoes;
-    }
+    }// fim do listarRequisicoes()
 
     // Método para gerar relatório de requisições
     public void gerarRelatorio() {
@@ -86,7 +86,8 @@ public class RequisicoesController {
         System.out.println("===== Relatório de Requisições =====");
         for (Requisicoes req : requisicoes) {
             System.out.println(req);
-        }
+        }// fim do for
         System.out.println("====================================");
-    }
-}
+    }// fim do gerarRelatorio()
+    
+}// fim da classe RequisicoesController

@@ -31,10 +31,10 @@ Usuarios user;
         initComponents();
         user =u;
         iconeTela();
+        // Chamada do menu superior
          Menu_adm_outras_telas menu = new Menu_adm_outras_telas();
          setJMenuBar(menu.getMenuBarInstance());
          setJMenuBar(MenuSuperior.criarMenu(this, user));
-         
     }
 
     /**
@@ -134,7 +134,7 @@ Usuarios user;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // método para mudar o ícone da tela na hora da execução
     private void iconeTela(){  
         try {
 
@@ -146,10 +146,11 @@ Usuarios user;
           System.out.println("Erro ao importar icone: " + ex.getMessage());
         }        
    
-    }
+    }// fim do iconeTela()
+    
+    // método para gerar um relatório em pdf dentro do botãoGerarPDF
     private void botaoGerarPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerarPdfActionPerformed
          String pdfPath = "Requisições.pdf";
-        
         try{
             
             // criar o documento pdf
