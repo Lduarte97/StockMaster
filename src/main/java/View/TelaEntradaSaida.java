@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
@@ -209,7 +210,7 @@ private int userType;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,7 +332,22 @@ private int userType;
     }//GEN-LAST:event_radioButtonSaidaActionPerformed
 private int idproduto;
     private void botaoMovimentarEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMovimentarEstoqueActionPerformed
-        // TODO add your handling code here:
+        
+        // Carregar o GIF de carregamento (substitua o caminho pelo caminho correto do arquivo GIF)
+        String gifURL = "D:/ProjetoStockMaster/imagens/Glass lines.gif";  // Coloque o caminho correto do seu GIF
+        ImageIcon loadingIcon = new ImageIcon(gifURL);
+
+        // Exibir o JOptionPane com a mensagem e o GIF de carregamento
+        JOptionPane.showMessageDialog(
+                this, 
+                "Esta função está em desenvolvimento. Por favor, aguarde...", // Mensagem
+                "Aguarde",  // Título
+                JOptionPane.INFORMATION_MESSAGE,  // Tipo de mensagem
+                loadingIcon // Ícone (GIF de carregamento)
+        );
+
+        // Função comentada para evitar erros pois ainda está em desenvolvimento
+        /*
         try {
     // Verificar se o usuário está nulo
     if (user == null) {
@@ -369,7 +385,7 @@ private int idproduto;
 } catch (Exception e) {
     // Mensagem de erro caso ocorra uma exceção
     JOptionPane.showMessageDialog(null, "Erro ao realizar a movimentação: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-}// fim do try catch
+}// fim do try catch*/
 
     }//GEN-LAST:event_botaoMovimentarEstoqueActionPerformed
 

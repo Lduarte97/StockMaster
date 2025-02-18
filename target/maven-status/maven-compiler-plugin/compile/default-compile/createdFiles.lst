@@ -1,14 +1,14 @@
-View\TelaCadastroUsuario.class
 View\TelaDeCadastroDeProdutos$2.class
+View\TelaCadastroUsuario.class
 View\TelaDeCadastroDeProdutos$9.class
 model\Perfil.class
 View\Tela_Perfil.class
 View\TelaRequisicoes$1.class
 View\Tela_Perfil$4.class
-View\TelaCadastroUsuario$8.class
 View\Tela_Perfil$1.class
-View\TelaDeLogin$2.class
+View\TelaCadastroUsuario$8.class
 View\TelaEntradaSaida$7.class
+View\TelaDeLogin$2.class
 View\TelaRequisicoes.class
 controller\UsuarioController.class
 View\TelaCadastroUsuario$4.class
@@ -23,8 +23,8 @@ View\TelaEntradaSaida.class
 View\TelaCadastroUsuario$2.class
 View\TelaEntradaSaida$3.class
 View\TelaDeCadastroDeProdutos$1.class
-View\TelaEntradaSaida$6.class
 View\Tela_home.class
+View\TelaEntradaSaida$6.class
 View\MenuSuperior.class
 View\TelaDeCadastroDeProdutos$14.class
 View\Tela_Perfil$5.class
@@ -54,8 +54,8 @@ View\TelaDeCadastroDeProdutos$4.class
 View\TelaDeLogin$4.class
 View\Menu_adm_outras_telas$1.class
 View\Tela_Perfil$3.class
-View\TelaCadastroUsuario$7.class
 View\TelaEntradaSaida$8.class
+View\TelaCadastroUsuario$7.class
 View\TelaDeCadastroDeProdutos$3.class
 View\TelaRequisicoes$2.class
 View\TelaEntradaSaida$1.class

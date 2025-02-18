@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -31,12 +32,27 @@ Usuarios user;
         initComponents();
         user =u;
         iconeTela();
+         mostrarTelaEmDesenvolvimento();
         // Chamada do menu superior
          Menu_adm_outras_telas menu = new Menu_adm_outras_telas();
          setJMenuBar(menu.getMenuBarInstance());
          setJMenuBar(MenuSuperior.criarMenu(this, user));
     }
+    
+    public void mostrarTelaEmDesenvolvimento(){
+        // Carregar o GIF de carregamento (substitua o caminho pelo caminho correto do arquivo GIF)
+        String gifURL = "D:/ProjetoStockMaster/imagens/Glass lines.gif";  // Coloque o caminho correto do seu GIF
+        ImageIcon loadingIcon = new ImageIcon(gifURL);
 
+        // Exibir o JOptionPane com a mensagem e o GIF de carregamento
+        JOptionPane.showMessageDialog(
+                this, 
+                "Esta função está em desenvolvimento. Por favor, aguarde...", // Mensagem
+                "Aguarde",  // Título
+                JOptionPane.INFORMATION_MESSAGE,  // Tipo de mensagem
+                loadingIcon // Ícone (GIF de carregamento)
+        );
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -209,6 +225,9 @@ Usuarios user;
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Não foi possível PDF!");
         }// fim do try catch
+    }
+        
+        // Função comentada para evitar erros pois ainda está em desenvolvimento
         
        /** public void preencherTabelaRequisicoes() {
         DefaultTableModel modeloTabela = (DefaultTableModel) tabelaRequisicoes.getModel();
@@ -233,7 +252,7 @@ Usuarios user;
         modeloTabela.addRow(dados);
     }
     }//GEN-LAST:event_botaoGerarPdfActionPerformed
-
+    **/
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
