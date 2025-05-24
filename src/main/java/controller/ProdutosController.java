@@ -191,5 +191,97 @@ public class ProdutosController {
     return lista;// retorna uma lista
 }// fim do listarProdutosNome
      
+      // Novo método: Buscar Produto por ID
+    public Produtos buscarProdutoPorId(int produtoId) {
+        String query = "SELECT * FROM Produtos WHERE ProdutoID = ?;";
+        Produtos produto = null;
+
+        try (Connection connection = ConexaoBancoDeDados.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, produtoId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    produto = new Produtos();
+                    produto.setProdutoID(resultSet.getInt("ProdutoID"));
+                    produto.setTipoProduto(resultSet.getString("TipoProduto"));
+                    produto.setMarcaProduto(resultSet.getString("MarcaProduto"));
+                    produto.setCodigo(resultSet.getString("Codigo"));
+                    produto.setCodigoFornecedor(resultSet.getString("CodigoFornecedor"));
+                    produto.setUnidadeVenda(resultSet.getString("UnidadeVenda"));
+                    produto.setDataCadastro(resultSet.getString("DataCadastro"));
+                    produto.setPrecoCusto(resultSet.getDouble("PrecoCusto"));
+                    produto.setPrecoAtacado(resultSet.getDouble("PrecoAtacado"));
+                    produto.setPrecoVarejo(resultSet.getDouble("PrecoVarejo"));
+                    produto.setPrecoDistribuidora(resultSet.getDouble("PrecoDistribuidora"));
+                    produto.setEstoqueMaximo(resultSet.getInt("EstoqueMaximo"));
+                    produto.setEstoqueMinimo(resultSet.getInt("EstoqueMinimo"));
+                    produto.setEstoqueAtual(resultSet.getInt("EstoqueAtual"));
+                    produto.setFotoProduto(resultSet.getString("FotoProduto"));
+                    produto.setCategoria(resultSet.getString("Categoria"));
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao buscar produto por ID: " + e.getMessage());
+        }
+        return produto;
+    }// fim do buscarProdutoPorId
+
+    // Novo método: Atualizar Produto
+    public boolean atualizarProduto(Produtos produto) {
+        String query = "UPDATE Produtos SET " +
+                       "TipoProduto = ?, MarcaProduto = ?, Codigo = ?, CodigoFornecedor = ?, " +
+                       "UnidadeVenda = ?, DataCadastro = ?, PrecoCusto = ?, PrecoAtacado = ?, " +
+                       "PrecoVarejo = ?, PrecoDistribuidora = ?, EstoqueMaximo = ?, " +
+                       "EstoqueMinimo = ?, EstoqueAtual = ?, FotoProduto = ?, Categoria = ? " +
+                       "WHERE ProdutoID = ?;";
+        try (Connection connection = ConexaoBancoDeDados.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, produto.getTipoProduto());
+            preparedStatement.setString(2, produto.getMarcaProduto());
+            preparedStatement.setString(3, produto.getCodigo());
+            preparedStatement.setString(4, produto.getCodigoFornecedor());
+            preparedStatement.setString(5, produto.getUnidadeVenda());
+            preparedStatement.setString(6, produto.getDataCadastro());
+            preparedStatement.setDouble(7, produto.getPrecoCusto());
+            preparedStatement.setDouble(8, produto.getPrecoAtacado());
+            preparedStatement.setDouble(9, produto.getPrecoVarejo());
+            preparedStatement.setDouble(10, produto.getPrecoDistribuidora());
+            preparedStatement.setInt(11, produto.getEstoqueMaximo());
+            preparedStatement.setInt(12, produto.getEstoqueMinimo());
+            preparedStatement.setInt(13, produto.getEstoqueAtual());
+            preparedStatement.setString(14, produto.getFotoProduto());
+            preparedStatement.setString(15, produto.getCategoria());
+            preparedStatement.setInt(16, produto.getProdutoID()); // Condição WHERE
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            System.err.println("Erro ao atualizar produto: " + e.getMessage());
+            return false;
+        }
+    }// fim do atualizarProduto
+
+    // Novo método: Excluir Produto
+    public boolean excluirProduto(int produtoId) {
+        String query = "DELETE FROM Produtos WHERE ProdutoID = ?;";
+        try (Connection connection = ConexaoBancoDeDados.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, produtoId);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            System.err.println("Erro ao excluir produto: " + e.getMessage());
+            return false;
+        }
+    }// fim do excluirProduto
+      
+     
      
 } // fim da classe ProdutosController   

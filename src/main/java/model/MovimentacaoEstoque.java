@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-
+import java.time.LocalDateTime;
 /**
  *
  * @author lldua
@@ -16,18 +16,22 @@ public class MovimentacaoEstoque {
     private String codigoProduto;
     private int quantidade;
     private int idUsuario;
+    private String NomeProduto;
+    private LocalDateTime dataMov;
 
     // Construtor vazio
     public MovimentacaoEstoque() {}
 
     // Construtor com parâmetros
-    public MovimentacaoEstoque(int idProduto, int tipoMovimentacao, String codigoSolicitante, String codigoProduto, int quantidade, int idUsuario) {
+    public MovimentacaoEstoque(int idProduto, int tipoMovimentacao, String codigoSolicitante, String codigoProduto, int quantidade, int idUsuario,String NomeProduto, LocalDateTime dataMov) {
         this.idProduto = idProduto;
         this.tipoMovimentacao = tipoMovimentacao;
         this.codigoSolicitante = codigoSolicitante;
         this.codigoProduto = codigoProduto;
         this.quantidade = quantidade;
         this.idUsuario = idUsuario;
+        this.NomeProduto = NomeProduto;
+        this.dataMov = dataMov;
     }
 
     // Getters e Setters
@@ -86,4 +90,21 @@ public class MovimentacaoEstoque {
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
+
+    public String getNomeProduto() {
+        return NomeProduto;
+    }
+
+    public void setNomeProduto(String NomeProduto) {
+        this.NomeProduto = NomeProduto;
+    }
+
+    public LocalDateTime getDataMov() {
+        return dataMov;
+    }
+
+    public void setDataMov(LocalDateTime DataMov) {
+        this.dataMov = DataMov;
+    }
+
 }

@@ -176,7 +176,7 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
             // Passando os dados do ResultSet para objetos Usuario
             while (resultSet.next()) {
                 Usuarios usuario = new Usuarios();
-                usuario.setIdUsuario(resultSet.getInt("idUsuarios"));
+                usuario.setIdUsuario(resultSet.getInt("IdUsuario"));
                 usuario.setNome(resultSet.getString("Nome"));
                 usuario.setEmail(resultSet.getString("Email"));
                 usuario.setNomeDeUsuario(resultSet.getString("NomeDeUsuario"));
@@ -245,5 +245,52 @@ public Usuarios cadastrarUsuario(Usuarios usuario) {
             return null;
         }// fim do try/catch
     }// fim do listarUsuarioNome
+        
+    // Método para buscar um usuário pelo nome de usuário
+    // Adicionei este método que será útil para o filtro
+        public Usuarios buscarUsuarioPorNomeDeUsuario(String nomeDeUsuario) {
+        String query = "SELECT IdUsuario, Nome, Email, NomeDeUsuario, Senha, IsAdmin, CodigoUsuario FROM Usuarios WHERE NomeDeUsuario = ?";
+        try (Connection connection = ConexaoBancoDeDados.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, nomeDeUsuario);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                Usuarios usuario = new Usuarios();
+                usuario.setIdUsuario(resultSet.getInt("IdUsuario"));
+                usuario.setNome(resultSet.getString("Nome"));
+                usuario.setEmail(resultSet.getString("Email"));
+                usuario.setNomeDeUsuario(resultSet.getString("NomeDeUsuario"));
+                usuario.setSenha(resultSet.getString("Senha"));
+                usuario.setIsAdmin(resultSet.getInt("IsAdmin"));
+                usuario.setCodigoUsuario(resultSet.getString("CodigoUsuario"));
+                return usuario;
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao buscar usuário por nome de usuário: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
+public Usuarios buscarUsuarioPorId(int idUsuario) {
+    String query = "SELECT IdUsuario, NomeDeUsuario FROM Usuarios WHERE IdUsuario = ?";
+    try (Connection connection = ConexaoBancoDeDados.getConnection();
+         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        preparedStatement.setInt(1, idUsuario);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            Usuarios usuario = new Usuarios();
+            usuario.setIdUsuario(resultSet.getInt("IdUsuario"));
+            usuario.setNomeDeUsuario(resultSet.getString("NomeDeUsuario"));
+            return usuario;
+        }
+    } catch (SQLException e) {
+        System.err.println("Erro ao buscar usuário por ID: " + e.getMessage());
+        e.printStackTrace();
+    }
+    return null;
+}
+
         
 }// fim da classe public class UsuarioController

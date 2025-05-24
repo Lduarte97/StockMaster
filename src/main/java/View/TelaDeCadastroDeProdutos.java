@@ -23,8 +23,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
    
-  
-
     /**
      * Creates new form TelaDeCadastroDeProdutos
      */Usuarios user;
@@ -131,26 +129,28 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
         textCodigo1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabelTitulo = new javax.swing.JLabel();
+        limparCampos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(940, 580));
-        setMinimumSize(new java.awt.Dimension(940, 580));
+        setMaximumSize(new java.awt.Dimension(940, 650));
+        setMinimumSize(new java.awt.Dimension(940, 650));
+        setPreferredSize(new java.awt.Dimension(940, 650));
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(940, 580));
-        jPanel1.setMinimumSize(new java.awt.Dimension(940, 580));
-        jPanel1.setPreferredSize(new java.awt.Dimension(940, 580));
+        jPanel1.setMaximumSize(new java.awt.Dimension(940, 650));
+        jPanel1.setMinimumSize(new java.awt.Dimension(940, 650));
+        jPanel1.setPreferredSize(new java.awt.Dimension(940, 650));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setText("Categoria :");
+        jLabel1.setText("Categoria :*");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Cód. do produto:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 120, -1));
+        jLabel2.setText("Cód. do produto:*");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 130, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Cód. Fornecedor :");
+        jLabel3.setText("Cód. Fornecedor:*");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -159,8 +159,8 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
         jPanel1.add(textDataCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 110, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel7.setText("Data do Cad. :");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 100, -1));
+        jLabel7.setText("Data do Cad. :*");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 110, -1));
         jPanel1.add(textMarcaProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 150, 30));
 
         textPrecoDistribuidora.addActionListener(new java.awt.event.ActionListener() {
@@ -170,11 +170,12 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
         });
         jPanel1.add(textPrecoDistribuidora, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 120, 30));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("R$ ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 20, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel9.setText("Estoque Atual  :");
+        jLabel9.setText("Estoque Atual :*");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 120, -1));
 
         descricao.addActionListener(new java.awt.event.ActionListener() {
@@ -182,8 +183,9 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
                 descricaoActionPerformed(evt);
             }
         });
-        jPanel1.add(descricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 550, 100));
+        jPanel1.add(descricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 550, 100));
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("R$ ");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 20, -1));
 
@@ -198,12 +200,13 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
         });
         jPanel1.add(textPrecoAtacado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 110, 30));
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setText("R$ ");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 20, -1));
 
         limparFoto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         limparFoto.setText("Limpar Foto");
-        jPanel1.add(limparFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 360, -1, -1));
+        jPanel1.add(limparFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, -1, -1));
 
         textFotoProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,6 +215,7 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
         });
         jPanel1.add(textFotoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 250, 200));
 
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel13.setText("R$ ");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 20, -1));
 
@@ -222,7 +226,7 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
                 buscarFotoActionPerformed(evt);
             }
         });
-        jPanel1.add(buscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, -1, -1));
+        jPanel1.add(buscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel14.setText("Preço de Varj:");
@@ -236,7 +240,7 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
         jPanel1.add(textPrecoVarejo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, 110, 30));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel16.setText("Preço de Custo :");
+        jLabel16.setText("Preço de Custo:*");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 130, -1));
 
         textEstoqueAtual.addActionListener(new java.awt.event.ActionListener() {
@@ -280,13 +284,13 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
         jPanel1.add(textEstoqueMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 120, 30));
 
         tipoDeproduto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        tipoDeproduto.setText("Nome do Produto :");
+        tipoDeproduto.setText("Nome do Produto:*");
         jPanel1.add(tipoDeproduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 140, -1));
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 10, 30, 20));
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel22.setText("Und de Venda :");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 110, -1));
+        jLabel22.setText("Und de Venda:*");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 110, -1));
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 161, 110, -1));
 
         textUnidadeVenda.addActionListener(new java.awt.event.ActionListener() {
@@ -304,7 +308,7 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
                 cadastrarProdutosActionPerformed(evt);
             }
         });
-        jPanel1.add(cadastrarProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 470, -1, 30));
+        jPanel1.add(cadastrarProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 490, -1, 30));
         jPanel1.add(textCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 140, 30));
         jPanel1.add(tipoDeProduto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 270, 30));
 
@@ -323,24 +327,37 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
         jPanel1.add(textCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("Marca do Produto: ");
+        jLabel4.setText("Marca do Produto:* ");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, -1, -1));
 
         jLabelTitulo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelTitulo.setText("Cadastro de produto");
-        jPanel1.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 200, 20));
+        jPanel1.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 200, 20));
+
+        limparCampos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        limparCampos.setText("Limpar Campos");
+        limparCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparCamposActionPerformed(evt);
+            }
+        });
+        jPanel1.add(limparCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 490, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -385,57 +402,119 @@ public final class TelaDeCadastroDeProdutos extends javax.swing.JFrame {
     private void textFotoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFotoProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textFotoProdutoActionPerformed
-
+    
     private void cadastrarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarProdutosActionPerformed
+     // Verificação dos campos obrigatórios que breca o cadastro caso estejam vazios
+    if (textCodigo1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo código do produto é obrigatório!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return; // Interrompe a execução do método
+        }
+     if (textCodigoFornecedor1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo código do fornecedor é obrigatório!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return; // Interrompe a execução do método
+        }
+     if (textCategoria.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo categoria é obrigatório!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return; // Interrompe a execução do método
+        }
+     if (tipoDeProduto1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo nome do produto é obrigatório!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return; // Interrompe a execução do método
+        }
+     if (textMarcaProduto.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo marca do produto é obrigatório!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return; // Interrompe a execução do método
+        }
+     if (textPrecoCusto.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo preço de custo é obrigatório!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return; // Interrompe a execução do método
+        }
+     if (textDataCadastro.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo data de cadastro é obrigatório!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return; // Interrompe a execução do método
+        }
+    if (textEstoqueAtual.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo Estoque atual é obrigatório!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return; // Interrompe a execução do método
+        }
+    if (textUnidadeVenda.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo unidade de venda é obrigatório!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return; // Interrompe a execução do método
+        }
+    
+        ImageIcon iconSucesso = new ImageIcon(getClass().getResource("/imagens/sucesso.png"));
+        ImageIcon iconErro = new ImageIcon(getClass().getResource("/imagens/delete.png"));
+        
         ProdutosController controller = new ProdutosController();
-try {
-    // Obtendo valores dos campos de texto e convertendo-os conforme necessário
-    String tipoProduto = tipoDeProduto1.getText();
-    String marcaProduto = textMarcaProduto.getText();
-    String codigo = textCodigo1.getText();
-    String codigoFornecedor = textCodigoFornecedor1.getText();
-    String unidadeVenda = textUnidadeVenda.getText();
-    String dataCadastro = textDataCadastro.getText();
-    double precoCusto = Double.parseDouble(textPrecoCusto.getText());
-    double precoAtacado = Double.parseDouble(textPrecoAtacado.getText());
-    double precoVarejo = Double.parseDouble(textPrecoVarejo.getText());
-    double precoDistribuidora = Double.parseDouble(textPrecoDistribuidora.getText());
-    int estoqueMaximo = Integer.parseInt(textEstoqueMaximo.getText());
-    int estoqueMinimo = Integer.parseInt(textEstoqueMinimo.getText());
-    int estoqueAtual = Integer.parseInt(textEstoqueAtual.getText());
-    String fotoProduto = textFotoProduto.getText();
-    String categoria = textCategoria.getText(); // Obtendo valor da Categoria
+    try {
+        // Obtendo valores dos campos de texto e convertendo-os conforme necessário
+        String tipoProduto = tipoDeProduto1.getText();
+        String marcaProduto = textMarcaProduto.getText();
+        String codigo = textCodigo1.getText();
+        String codigoFornecedor = textCodigoFornecedor1.getText();
+        String unidadeVenda = textUnidadeVenda.getText();
+        String dataCadastro = textDataCadastro.getText();
+        double precoCusto = Double.parseDouble(textPrecoCusto.getText());
+        double precoAtacado = Double.parseDouble(textPrecoAtacado.getText());
+        double precoVarejo = Double.parseDouble(textPrecoVarejo.getText());
+        double precoDistribuidora = Double.parseDouble(textPrecoDistribuidora.getText());
+        int estoqueMaximo = Integer.parseInt(textEstoqueMaximo.getText());
+        int estoqueMinimo = Integer.parseInt(textEstoqueMinimo.getText());
+        int estoqueAtual = Integer.parseInt(textEstoqueAtual.getText());
+        String fotoProduto = textFotoProduto.getText();
+        String categoria = textCategoria.getText(); // Obtendo valor da Categoria
 
-    // Criando um objeto Produto e configurando seus atributos
-    Produtos produto = new Produtos();
-    produto.setTipoProduto(tipoProduto);
-    produto.setMarcaProduto(marcaProduto);
-    produto.setCodigo(codigo);
-    produto.setCodigoFornecedor(codigoFornecedor);
-    produto.setUnidadeVenda(unidadeVenda);
-    produto.setDataCadastro(dataCadastro);
-    produto.setPrecoCusto(precoCusto);
-    produto.setPrecoAtacado(precoAtacado);
-    produto.setPrecoVarejo(precoVarejo);
-    produto.setPrecoDistribuidora(precoDistribuidora);
-    produto.setEstoqueMaximo(estoqueMaximo);
-    produto.setEstoqueMinimo(estoqueMinimo);
-    produto.setEstoqueAtual(estoqueAtual);
-    produto.setFotoProduto(fotoProduto);
-    produto.setCategoria(categoria); // Adicionando Categoria
+        // Criando um objeto Produto e configurando seus atributos
+        Produtos produto = new Produtos();
+        produto.setTipoProduto(tipoProduto);
+        produto.setMarcaProduto(marcaProduto);
+        produto.setCodigo(codigo);
+        produto.setCodigoFornecedor(codigoFornecedor);
+        produto.setUnidadeVenda(unidadeVenda);
+        produto.setDataCadastro(dataCadastro);
+        produto.setPrecoCusto(precoCusto);
+        produto.setPrecoAtacado(precoAtacado);
+        produto.setPrecoVarejo(precoVarejo);
+        produto.setPrecoDistribuidora(precoDistribuidora);
+        produto.setEstoqueMaximo(estoqueMaximo);
+        produto.setEstoqueMinimo(estoqueMinimo);
+        produto.setEstoqueAtual(estoqueAtual);
+        produto.setFotoProduto(fotoProduto);
+        produto.setCategoria(categoria); // Adicionando Categoria
+        
+        // Mandando os dados do produto para o método de cadastro
+        boolean cadastrou = controller.cadastrandoProdutos(produto);
+        if (cadastrou) {
+            String mensagemSucesso = "Produto cadastrado com sucesso!";
+            JOptionPane.showMessageDialog(null, mensagemSucesso, "Sucesso", JOptionPane.INFORMATION_MESSAGE,iconSucesso);
+           
+            // Limpa os campos e a foto após o cadastro
+            tipoDeProduto1.setText("");
+            textMarcaProduto.setText("");
+            textCodigo1.setText("");
+            textCodigoFornecedor1.setText("");
+            textUnidadeVenda.setText("");
+            textDataCadastro.setText("");
+            textPrecoCusto.setText("");
+            textPrecoAtacado.setText("");
+            textPrecoVarejo.setText("");
+            textPrecoDistribuidora.setText("");
+            textEstoqueMaximo.setText("");
+            textEstoqueMinimo.setText("");
+            textEstoqueAtual.setText("");
+            textFotoProduto.setText("");
+            textCategoria.setText("");
+            textFotoProduto.setIcon(null); // Limpa a foto
+            
+        } else {
+            String mensagemErro = "Erro ao cadastrar produto! ";
+            JOptionPane.showMessageDialog(null, mensagemErro, "Erro", JOptionPane.ERROR_MESSAGE, iconErro);
+        }// fim do if else
 
-    // Mandando os dados do produto para o método de cadastro
-    boolean cadastrou = controller.cadastrandoProdutos(produto);
-    if (cadastrou) {
-        JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
-    } else {
-        JOptionPane.showMessageDialog(null, "Produto não cadastrado.");
-    }// fim do if else
-
-} catch (Exception e) {
-    System.err.print("Erro ao cadastrar: " + e);
+    } catch (Exception e) {
+        System.err.print("Erro ao cadastrar: " + e);
 }// fimd o try/catch
-
+    
 
     }//GEN-LAST:event_cadastrarProdutosActionPerformed
 
@@ -450,6 +529,26 @@ try {
     private void textCodigo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCodigo1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textCodigo1ActionPerformed
+
+    private void limparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCamposActionPerformed
+        // TODO add your handling code here:
+       tipoDeProduto1.setText("");
+       textMarcaProduto.setText("");
+       textCodigo1.setText("");
+       textCodigoFornecedor1.setText("");
+       textUnidadeVenda.setText("");
+       textDataCadastro.setText("");
+       textPrecoCusto.setText("");
+       textPrecoAtacado.setText("");
+       textPrecoVarejo.setText("");
+       textPrecoDistribuidora.setText("");
+       textEstoqueMaximo.setText("");
+       textEstoqueMinimo.setText("");
+       textEstoqueAtual.setText("");
+       textFotoProduto.setText("");
+       textCategoria.setText("");
+       textFotoProduto.setIcon(null); // Limpa a foto
+    }//GEN-LAST:event_limparCamposActionPerformed
 
     /**
      * @param args the command line arguments
@@ -513,6 +612,7 @@ try {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton limparCampos;
     private javax.swing.JButton limparFoto;
     private javax.swing.JTextField textCategoria;
     private javax.swing.JTextField textCodigo1;

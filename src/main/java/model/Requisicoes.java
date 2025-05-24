@@ -2,10 +2,6 @@ package model;
 
 import java.util.Date;
 
-/**
- *
- * @author devmat
- */
 public class Requisicoes {
     private int idRequisicao;
     private int idUsuario;

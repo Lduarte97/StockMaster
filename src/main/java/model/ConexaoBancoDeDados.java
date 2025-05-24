@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,13 +38,38 @@ public class ConexaoBancoDeDados {
         return conection;
         
     }// final do getConnecti
-
+public static void fecharConexao(Connection conn) {
+        if(conn != null){
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ConexaoBancoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        }
+    
     public static void fecharConexao(Connection conn, PreparedStatement stmt) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        fecharConexao(conn);
+        if(stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ConexaoBancoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        //throw new UnsupportedOperationException("Not supported yet...."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }   
 
     public static void fecharConexao(Connection conn, PreparedStatement stmt, ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        fecharConexao(conn, stmt);
+        if(rs != null){
+            try {
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ConexaoBancoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
     }
 
     

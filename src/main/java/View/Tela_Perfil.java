@@ -101,11 +101,17 @@ public class Tela_Perfil extends javax.swing.JFrame {
         campoNomeDeUsuario = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaUsuario = new javax.swing.JTable();
-        cadastrar_usuario = new javax.swing.JButton();
+        botaoCancelar = new javax.swing.JButton();
+        jLabelTítulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(940, 650));
+        setMinimumSize(new java.awt.Dimension(940, 650));
+        setPreferredSize(new java.awt.Dimension(940, 650));
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(980, 540));
+        jPanel1.setMaximumSize(new java.awt.Dimension(940, 650));
+        jPanel1.setMinimumSize(new java.awt.Dimension(940, 650));
+        jPanel1.setPreferredSize(new java.awt.Dimension(940, 650));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -120,9 +126,9 @@ public class Tela_Perfil extends javax.swing.JFrame {
         jLabel3.setText("Email:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Nome de Usuario:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Senha:");
@@ -155,9 +161,9 @@ public class Tela_Perfil extends javax.swing.JFrame {
                 ExcluirBotaoActionPerformed(evt);
             }
         });
-        jPanel1.add(ExcluirBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 480, -1, 40));
+        jPanel1.add(ExcluirBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 130, 40));
 
-        botaoAtualizar.setBackground(new java.awt.Color(102, 102, 102));
+        botaoAtualizar.setBackground(new java.awt.Color(0, 51, 255));
         botaoAtualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         botaoAtualizar.setForeground(new java.awt.Color(255, 255, 255));
         botaoAtualizar.setText("Atualizar");
@@ -166,12 +172,13 @@ public class Tela_Perfil extends javax.swing.JFrame {
                 botaoAtualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(botaoAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, 120, 40));
+        jPanel1.add(botaoAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, 120, 40));
         jPanel1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 220, 40));
         jPanel1.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 210, 40));
         jPanel1.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 210, 40));
         jPanel1.add(campoNomeDeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 220, 40));
 
+        TabelaUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         TabelaUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -190,32 +197,30 @@ public class Tela_Perfil extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TabelaUsuario);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 310, 930, 140));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 310, 850, 180));
 
-        cadastrar_usuario.setBackground(new java.awt.Color(0, 102, 51));
-        cadastrar_usuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cadastrar_usuario.setForeground(new java.awt.Color(255, 255, 255));
-        cadastrar_usuario.setText("Cadastrar usuario ");
-        cadastrar_usuario.addActionListener(new java.awt.event.ActionListener() {
+        botaoCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        botaoCancelar.setText("Cancelar");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrar_usuarioActionPerformed(evt);
+                botaoCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(cadastrar_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, -1, 40));
+        jPanel1.add(botaoCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 120, 40));
+
+        jLabelTítulo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelTítulo.setText("Informações dos Usuários");
+        jPanel1.add(jLabelTítulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -308,35 +313,24 @@ public class Tela_Perfil extends javax.swing.JFrame {
         }    
     }//GEN-LAST:event_ExcluirBotaoActionPerformed
 
-    private void cadastrar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_usuarioActionPerformed
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
       // Chamando o controller de Usuários
-    UsuarioController controller = new UsuarioController();
-    
-    try {
-        // Objeto do tipo usuário
-        Usuarios usuario = new Usuarios();
-        usuario.setIdUsuario(this.idUsuario);  // Usando o ID já atribuído
-        usuario.setNome(campoNome.getText());
-        usuario.setNomeDeUsuario(campoNomeDeUsuario.getText());
-        usuario.setEmail(campoEmail.getText());
-        usuario.setSenha(campoSenha.getText());
+    int resposta = JOptionPane.showConfirmDialog(
+            null, 
+            "Deseja Fechar essa tela e voltar para a tela Home?", 
+            "Confirmação", 
+            JOptionPane.OK_CANCEL_OPTION
+        );
         
-        // Mandando os dados do produto para o metodo de cadastro
-        Usuarios usuarioCadastrado = controller.cadastrarUsuario(usuario);  // Aqui recebe o objeto 'Usuarios'
-        
-        if (usuarioCadastrado != null) {
-            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
-            Listagem(); // listar produtos novos
-            limparCampos();
-        } else {
-            JOptionPane.showMessageDialog(null, "Não cadastrado!");
-        }// fim do if/else
-
-    } catch (Exception e) {
-        System.err.print("Erro ao cadastrar: " + e);
-    }// fim do try/catch
+        // Verifica a resposta do usuário
+        if (resposta == JOptionPane.OK_OPTION) {
+            // Voltar para a tela Home
+            Tela_home Home = new Tela_home(user);
+            Home.setVisible(true);
+            dispose(); // Fecha a tela atual
+        }
     
-    }//GEN-LAST:event_cadastrar_usuarioActionPerformed
+    }//GEN-LAST:event_botaoCancelarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -375,7 +369,7 @@ public class Tela_Perfil extends javax.swing.JFrame {
     private javax.swing.JButton ExcluirBotao;
     private javax.swing.JTable TabelaUsuario;
     private javax.swing.JButton botaoAtualizar;
-    private javax.swing.JButton cadastrar_usuario;
+    private javax.swing.JButton botaoCancelar;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JTextField campoNome;
     private javax.swing.JTextField campoNomeDeUsuario;
@@ -385,6 +379,7 @@ public class Tela_Perfil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelTítulo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
